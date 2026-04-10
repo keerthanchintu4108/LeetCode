@@ -1,19 +1,17 @@
 public class Solution {
     public static boolean isPalindrome(int x) {
-        if (x < 0 || (x % 10 == 0 && x != 0)) {
-            return false;
+        String s = String.valueOf(x);
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) return false;
+            i++;
+            j--;
         }
-        int reversedHalf = 0;
-        while (x > reversedHalf) {
-            int digit = x % 10;
-            reversedHalf = reversedHalf * 10 + digit;
-            x = x / 10;
-        }
-        return x == reversedHalf || x == reversedHalf / 10;
+        return true;
     }
     public static void main(String[] args) {
-        System.out.println(isPalindrome(121));  
-        System.out.println(isPalindrome(-121)); 
-        System.out.println(isPalindrome(10));   
+        System.out.println(isPalindrome(121));
+        System.out.println(isPalindrome(-121));
+        System.out.println(isPalindrome(10));
     }
 }
